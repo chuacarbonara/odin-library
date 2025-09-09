@@ -1,6 +1,4 @@
 const myLibrary = [];
-let newBookForm = document.querySelector(".new-book-form");
-let newBookBtn = document.querySelector(".new-book");
 
 function openForm() {
     document.getElementById("form-container").style.display = "block";
@@ -10,15 +8,22 @@ function closeForm() {
     document.getElementById("form-container").style.display = "none";
 }
 
-function Book() {
-  // the constructor...
+function Book(title, author, genre) {
+  this.title = title;
+  this.author = author;
+  this.genre = genre;
 }
 
 function addBookToLibrary() {
-  // take params, create a book then store it in the array
+  let title = document.getElementById("title").value;
+  let author = document.getElementById("author").value;
+  let genre = document.getElementById("genre").value;
+  let newBook = new Book(title, author, genre);
+  myLibrary.push(newBook);
+  console.log(myLibrary);
 }
 
-newBookBtn.addEventListener("click", () => {
-
+document.getElementById("new-book-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    addBookToLibrary();
 })
-
