@@ -33,13 +33,16 @@
                     <label for="genre">Genre</label>
                     <input type="text" id="genre" name="genre">
                 </div>
-                <button type="submit">Add Book</button>
-                <button type="button" onclick="closeForm()">Cancel</button>
+                <div class="buttons">
+                    <button type="submit">Add Book</button>
+                    <button type="reset">Clear All</button>
+                    <button type="reset" onclick="closeForm()">Cancel</button>
+                </div>
             </form>
         </div>
     </div>
     <div class="main">
-
+        <div id="library"></div>
     </div>
 </div>
 </body>
