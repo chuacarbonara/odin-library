@@ -80,6 +80,12 @@ body, html {
     background: #f1f1f1;
 }
 
+#read-status {
+    width: auto;
+    padding: 0;
+    margin: 0;
+}
+
 .buttons {
     margin-top: 12px;
     display: flex;
@@ -104,7 +110,9 @@ body, html {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
 .card {
+    position: relative;
     background-color: rgb(255, 0, 85, 0.75);
     color: white;
     font-weight: 600;
@@ -114,5 +122,23 @@ body, html {
     margin: 16px;
     padding: 16px;
     width: 240px;
-    height: 260px;
+    height: 280px;
+}
+
+.readbtn {
+    background-color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.rmvbtn {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    background: none;
+    border: none;
+    font-weight: 800;
+    text-decoration: underline;
+    color: rgb(226, 226, 226);
+    cursor: pointer;
 }
