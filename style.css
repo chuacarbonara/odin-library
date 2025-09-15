@@ -80,23 +80,11 @@ body, html {
     background: #f1f1f1;
 }
 
-#read-status {
-    width: auto;
-    padding: 0;
-    margin: 0;
-}
-
-.buttons {
-    margin-top: 12px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.buttons button {
-    background-color: white;
-    color: black;
-    height: 32px;
-    width: 100px;
+.read-status {
+    width: 50%;
+    text-align: center;
+    background-color: bisque;
+    border: none;
     padding: 8px;
 }
 
@@ -121,14 +109,16 @@ body, html {
     box-shadow: 12px 12px 2px -2px rgb(165, 165, 165);
     margin: 16px;
     padding: 16px;
-    width: 240px;
-    height: 280px;
+    width: 250px;
+    height: 320px;
 }
 
 .readbtn {
+    width: 160px;
     background-color: white;
     padding-top: 8px;
     padding-bottom: 8px;
+    margin-top: 24px;
 }
 
 .rmvbtn {

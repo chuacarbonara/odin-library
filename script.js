@@ -18,6 +18,10 @@ function Book(title, author, genre, reads, id) {
   this.id = id;
 }
 
+Book.prototype.toggleRead = function(){
+    this.reads = !this.reads;
+}
+
 function showBook() {
     const removePrevious = document.querySelectorAll(".card");
         for (let i = 0; i < removePrevious.length; i++){
@@ -43,23 +47,33 @@ function showBook() {
         bookGenre.innerText = `Genre: ${book.genre}`
         newCard.appendChild(bookGenre);
 
-        const readCheck = document.getElementById("read-status");
         const readStatus = document.createElement("div");
+        readStatus.classList.add("read-status");
+        readStatus.innerText = book.reads? "📕 Read" : "📖 Unread";
+        readStatus.style.color = book.reads? "darkgreen" : "maroon";
         newCard.appendChild(readStatus);
-        if (readCheck.checked == true) {
-            readStatus.innerText = "✓ Read";
-        } else {
-            readStatus.innerText = "x Unread"
-        }
+
+        const readBtn = document.createElement("button");
+        readBtn.classList.add("readbtn");
+        readBtn.innerText = book.reads? "Mark as Unread" : "Mark as Read";
+        newCard.appendChild(readBtn);
+
+        readBtn.addEventListener("click", () => {
+            book.toggleRead();
+            showBook();
+            console.log(myLibrary);
+        })
 
         const removeBtn = document.createElement("button");
         removeBtn.classList.add("rmvbtn");
         newCard.appendChild(removeBtn);
         removeBtn.innerText = "X Remove";
+
         removeBtn.addEventListener("click", () => {
             const bIndex = myLibrary.findIndex(b => b.id === book.id);
             myLibrary.splice(bIndex, 1);
             showBook();
+            console.log(myLibrary);
         });
     });
 }
@@ -68,7 +82,7 @@ function addBookToLibrary() {
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let genre = document.getElementById("genre").value;
-  let reads = "Unread";
+  let reads = false;
   let id = crypto.randomUUID();
   let newBook = new Book(title, author, genre, reads, id);
   myLibrary.push(newBook);
