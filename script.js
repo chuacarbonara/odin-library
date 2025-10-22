@@ -10,6 +10,7 @@ function closeForm() {
     document.getElementById("form-container").style.display = "none";
 }
 
+/*
 function Book(title, author, genre, reads, id) {
   this.title = title;
   this.author = author;
@@ -21,6 +22,25 @@ function Book(title, author, genre, reads, id) {
 Book.prototype.toggleRead = function(){
     this.reads = !this.reads;
 }
+*/
+
+// Refactor code in comment into class:
+
+class Book {
+    constructor (title, author, genre, reads, id) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.reads = reads;
+        this.id = id;
+    }
+
+    toggleRead() {
+        this.reads = !this.reads;
+    }
+}
+
+
 
 function showBook() {
     const removePrevious = document.querySelectorAll(".card");
